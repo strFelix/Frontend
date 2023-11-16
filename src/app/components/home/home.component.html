@@ -1,19 +1,25 @@
 <h1>Seja bem vindo ao curso de Angular!</h1>
 <h4 class="text-danger">{{ anuncio }}</h4>
-<div class="card" style="width: 18rem;">
-  <img [src]="foto" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">
-      {{ nomeProduto | uppercase }}
-      <span *ngIf="promocao; else elseBlock " class="badge badge-success">Promoção</span>
-      <ng-template #elseBlock>
-        <span class="badge badge-primary">Aproveite</span>
-      </ng-template>
-    </h5>
-    <p class="card-text">Identificação: {{ idProduto | number: '2.0-0' }} <br>
-      Validade: {{ dataValidade | date : "shortDate"}}
-    </p>
-    <a href="#" class="btn btn-primary float-right"> {{ precoProduto | currency:"BRL" }}</a>
+<div class="row">
+  <div class="col">
+    <app-card-produto
+      [foto] = "foto"
+      [nomeProduto] = "nomeProduto"
+      [promocao] = "promocao"
+      [idProduto] = "idProduto"
+      [dataValidade] = "dataValidade"
+      [precoProduto] = "precoProduto"
+    ></app-card-produto>
+  </div>
+  <div class="col">
+    <app-card-produto
+      foto = "https://i.ytimg.com/vi/IOfDoyP1Aq0/maxresdefault.jpg"
+      nomeProduto = "Curso Node.Js"
+      [promocao] = "false"
+      [idProduto] = "15"
+      dataValidade = "2021-12-31"
+      [precoProduto] = "2490"
+    ></app-card-produto>
+
   </div>
 </div>
-
