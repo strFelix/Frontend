@@ -10,6 +10,7 @@ import { HeaderComponent } from './template/header/header.component';
 import { FooterComponent } from './template/footer/footer.component';
 import { ListarprodutosComponent } from './components/produtos/listarprodutos/listarprodutos.component';
 import { CadastrarprodutoComponent } from './components/produtos/cadastrarproduto/cadastrarproduto.component';
+import { AtualizarProdutoComponent } from './components/produtos/atualizar-produto/atualizar-produto.component'
 
 import { LOCALE_ID } from '@angular/core';
 import localePt from '@angular/common/locales/pt';
@@ -18,7 +19,9 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AtualizarProdutoComponent } from './components/produtos/atualizar-produto/atualizar-produto.component'
+
+//import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2/';
+//nao instala o package
 
 registerLocaleData(localePt);
 
@@ -41,6 +44,7 @@ registerLocaleData(localePt);
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    //SweetAlert2Module.forRoot(),
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },
