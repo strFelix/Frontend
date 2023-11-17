@@ -16,11 +16,12 @@ export class ListarprodutosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.carregarProdutos();
   }
 
   carregarProdutos(): void{
     this.ProdutosService.buscarTodos().subscribe(retorno => {
-
+      this.listaProdutos = retorno;
     })
   }
 }
