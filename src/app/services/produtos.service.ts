@@ -21,12 +21,26 @@ export class ProdutosService {
     );
   }
 
+  buscarporId(id: number): Observable<IProduto>{
+    return this.http.get<IProduto>(`${this.URL}/${id}`).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro))
+    );
+  }
+
   cadastrar(produto: IProduto): Observable<IProduto>{
       return this.http.post<IProduto>(this.URL, produto).pipe(
         map(retorno => retorno),
         catchError(erro => this.exibirErro(erro))
       );
   }
+
+  atualizar(produto: IProduto): Observable<IProduto>{
+    return this.http.put<IProduto>(`${this.URL}/${produto.id}`, produto).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro))
+    );
+}
 
   exibirErro(e:any): Observable<any> {
     this.exibirMensagem('Erro!', 'Não foi possivel realizar a operação! Requisição sem reposta.', 'toast-error');
