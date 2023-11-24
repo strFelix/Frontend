@@ -16,12 +16,11 @@ import { LOCALE_ID } from '@angular/core';
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2/';
 
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2/';
-//nao instala o package
 
 registerLocaleData(localePt);
 
@@ -44,7 +43,7 @@ registerLocaleData(localePt);
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    //SweetAlert2Module.forRoot(),
+    SweetAlert2Module.forRoot()
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },

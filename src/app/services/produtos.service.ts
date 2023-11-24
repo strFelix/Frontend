@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EMPTY, Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators'
-import { ToastrService } from 'ngx-toastr'; 
-import { error } from 'console';
+import { ToastrService } from 'ngx-toastr';
+// import { error } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +40,14 @@ export class ProdutosService {
       map(retorno => retorno),
       catchError(erro => this.exibirErro(erro))
     );
-}
+  }
+
+  excluir(id: number): Observable<any>{
+    return this.http.delete<any>(`${this.URL}/${id}`,).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro))
+    );
+  }
 
   exibirErro(e:any): Observable<any> {
     this.exibirMensagem('Erro!', 'Não foi possivel realizar a operação! Requisição sem reposta.', 'toast-error');
